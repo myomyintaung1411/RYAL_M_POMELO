@@ -1,0 +1,51 @@
+export const settings = {
+  title: '代理系统',
+
+  /**
+   * @type {boolean} true | false
+   * @description Whether show the settings right-panel
+   */
+  showSettings: false,
+
+  /**
+   * @type {boolean} true | false
+   * @description Whether need tagsView
+   */
+  tagsView: true,
+
+  /**
+   * @type {boolean} true | false
+   * @description Whether fix the header
+   */
+  fixedHeader: true,
+
+  /**
+   * @type {boolean} true | false
+   * @description Whether show the logo in sidebar
+   */
+  sidebarLogo: true,
+
+  /**
+   * @type {boolean} true | false
+   * @description Whether support pinyin search in headerSearch
+   * Bundle size minified 47.3kb,minified + gzipped 63kb
+   */
+  supportPinyinSearch: false,
+
+  /**
+   * @type {string | array} 'production' | ['production', 'development']
+   * @description Need show err logs component.
+   * The default is only used in the production env
+   * If you want to also use it in dev, you can pass ['production', 'development']
+   */
+  errorLog: 'development',
+
+  ip: '114.29.253.162', // '114.29.253.162',
+  // ip: '192.168.10.202', // '114.29.253.162',
+  port: '8890',
+  imgPort: '8013',
+  pomelo_http_port: '3198',
+  pomelo_ws_port: '8014',
+  go_chat_url: 'http://proxy.hn885.com/lt/',
+  mb: 'http://proxy.hn885.com/m/'
+}

@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 414 414">
+    <defs>
+        <linearGradient id="preloader-gradient" x1="50%" y1="0" x2="50%" y2="100%">
+            <stop offset="0" class="pre-logo__color"></stop>
+            <stop offset="0.1" class="pre-logo__color"></stop>
+            <stop offset="0.2" class="pre-logo__color"></stop>
+            <stop offset="0.3" class="pre-logo__color"></stop>
+            <stop offset="0.4" class="pre-logo__color"></stop>
+            <stop offset="0.5" class="pre-logo__color"></stop>
+            <stop offset="0.6" class="pre-logo__color"></stop>
+            <stop offset="0.7" class="pre-logo__color"></stop>
+            <stop offset="0.8" class="pre-logo__color"></stop>
+            <stop offset="0.9" class="pre-logo__color"></stop>
+            <stop offset="1" class="pre-logo__color"></stop>
+        </linearGradient>
+    </defs>
+    <style>
+        .pre-logo__outer, .pre-logo__inner, .pre-logo__logo {
+            fill-rule: evenodd; }
+        .pre-logo__outer, .pre-logo__inner {
+            -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%; }
+        .pre-logo__outer {
+            fill: #fff;
+            -webkit-animation: preloader-rotate 5s linear infinite;
+            animation: preloader-rotate 5s linear infinite; }
+        .pre-logo__inner {
+            fill: #aaa;
+            animation: preloader-rotate 3s linear infinite reverse; }
+        .pre-logo__logo {
+            fill: url(#preloader-gradient); }
+        .pre-logo__color {
+            stop-color: #fff; }
+        .pre-logo__color:nth-child(1) {
+            -webkit-animation: preloader-gradient 3s linear infinite 0.5s;
+            animation: preloader-gradient 3s linear infinite 0.5s; }
+        .pre-logo__color:nth-child(2) {
+            -webkit-animation: preloader-gradient 3s linear infinite 0.45s;
+            animation: preloader-gradient 3s linear infinite 0.45s; }
+        .pre-logo__color:nth-child(3) {
+            -webkit-animation: preloader-gradient 3s linear infinite 0.4s;
+            animation: preloader-gradient 3s linear infinite 0.4s; }
+        .pre-logo__color:nth-child(4) {
+            -webkit-animation: preloader-gradient 3s linear infinite 0.35s;
+            animation: preloader-gradient 3s linear infinite 0.35s; }
+        .pre-logo__color:nth-child(5) {
+            -webkit-animation: preloader-gradient 3s linear infinite 0.3s;
+            animation: preloader-gradient 3s linear infinite 0.3s; }
+        .pre-logo__color:nth-child(6) {
+            -webkit-animation: preloader-gradient 3s linear infinite 0.25s;
+            animation: preloader-gradient 3s linear infinite 0.25s; }
+        .pre-logo__color:nth-child(7) {
+            -webkit-animation: preloader-gradient 3s linear infinite 0.2s;
+            animation: preloader-gradient 3s linear infinite 0.2s; }
+        .pre-logo__color:nth-child(8) {
+            -webkit-animation: preloader-gradient 3s linear infinite 0.15s;
+            animation: preloader-gradient 3s linear infinite 0.15s; }
+        .pre-logo__color:nth-child(9) {
+            -webkit-animation: preloader-gradient 3s linear infinite 0.1s;
+            animation: preloader-gradient 3s linear infinite 0.1s; }
+        .pre-logo__color:nth-child(10) {
+            -webkit-animation: preloader-gradient 3s linear infinite 0.05s;
+            animation: preloader-gradient 3s linear infinite 0.05s; }
+        .pre-logo__color:nth-child(11) {
+            -webkit-animation: preloader-gradient 3s linear infinite 0s;
+            animation: preloader-gradient 3s linear infinite 0s; }
+        @-webkit-keyframes preloader-gradient {
+            50% {
+                stop-color: #fff; }
+            60% {
+                stop-color: #aaa; }
+            70% {
+                stop-color: #fff; } }
+        @keyframes preloader-gradient {
+            50% {
+                stop-color: #fff; }
+            60% {
+                stop-color: #aaa; }
+            70% {
+                stop-color: #fff; } }
+        @-webkit-keyframes preloader-rotate {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg); } }
+        @keyframes preloader-rotate {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg); } }
+
+                   .pre-logo__outer, .pre-logo__inner, .pre-logo__logo {
+            fill-rule: evenodd;
+        }
+
+        .pre-logo__outer, .pre-logo__inner {
+            transform-origin: 50% 50%;
+        }
+
+        .pre-logo__outer {
+            fill: #fff;
+            animation: preloader-rotate 5s linear infinite;
+        }
+
+        .pre-logo__inner {
+            fill: #aaa;
+            animation: preloader-rotate 3s linear infinite reverse;
+        }
+
+        .pre-logo__logo {
+            fill: url(#preloader-gradient);
+            transform-origin: 50% 50%;
+        }
+
+        .pre-logo__color {
+            stop-color: #fff;
+        }
+  
+    </style>
+
+    <path id="pre-outer" class="pre-logo__outer" d="M37,88H56c36.522-46.083,93.2-73,152-73S321.478,41.917,358,88h18A209.912,209.912,0,0,0,207,1C139.342,0.678,76.6,33.18,37,88Zm0,238H56c36.522,46.083,93.2,73,152,73s113.478-26.917,150-73h18a209.911,209.911,0,0,1-169,87C139.342,413.322,76.6,380.82,37,326Z"/>
+    <path id="pre-inner" class="pre-logo__inner" fill="#aaa" d="M98,53V71a173.121,173.121,0,0,0,0,272v18A188.225,188.225,0,0,1,98,53Zm218,0V71a173.121,173.121,0,0,1,0,272v18A188.225,188.225,0,0,0,316,53Z"/>
+     <path id="pre-logo" class="pre-logo__logo" d="M 22.5 101.25 L 0 101.25 L 0 0 L 11.25 0 L 11.25 11.25 L 22.5 11.25 L 22.5 22.5 L 33.75 22.5 L 33.75 33.75 L 45 33.75 L 45 22.5 L 56.25 22.5 L 56.25 11.25 L 67.5 11.25 L 67.5 0 L 78.75 0 L 78.75 101.25 L 56.25 101.25 L 56.25 45 L 45 45 L 45 56.25 L 33.75 56.25 L 33.75 45 L 22.5 45 L 22.5 101.25 Z M 123.75 101.25 L 101.25 101.25 L 101.25 0 L 123.75 0 L 123.75 45 L 135 45 L 135 33.75 L 146.25 33.75 L 146.25 0 L 168.75 0 L 168.75 33.75 L 157.5 33.75 L 157.5 45 L 146.25 45 L 146.25 56.25 L 157.5 56.25 L 157.5 67.5 L 168.75 67.5 L 168.75 101.25 L 146.25 101.25 L 146.25 67.5 L 135 67.5 L 135 56.25 L 123.75 56.25 L 123.75 101.25 Z M 247.5 101.25 L 202.5 101.25 L 202.5 90 L 191.25 90 L 191.25 67.5 L 213.75 67.5 L 213.75 90 L 236.25 90 L 236.25 45 L 191.25 45 L 191.25 0 L 258.75 0 L 258.75 11.25 L 213.75 11.25 L 213.75 33.75 L 247.5 33.75 L 247.5 45 L 258.75 45 L 258.75 90 L 247.5 90 L 247.5 101.25 Z" vector-effect="non-scaling-stroke" transform="translate(80, 150)"/>
+
+
+    </svg>
