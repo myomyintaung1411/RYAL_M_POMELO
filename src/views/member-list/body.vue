@@ -246,7 +246,7 @@
     <Zero ref="ZeroRef" :zero-data="zeroData" @zeroEmit="zeroEmit" />
     <ShowXM ref="ShowxmRef" :showxm-data="showxmData" :is-show="isShow" @showxmEmit="userAction" />
  
-    <van-action-sheet v-if="use_row_data" v-model="showMoreUserBtn" title="修改" style="height: 30%;">
+    <van-action-sheet v-if="use_row_data" v-model="showMoreUserBtn" title="修改" style="height: 50%;">
         <div class="relative py-5 px-3">
       
             <div class="flex items-center space-x-2 mt-2">

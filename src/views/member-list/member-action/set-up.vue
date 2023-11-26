@@ -204,7 +204,7 @@ data() {
     arrJxb: this.$Global.optioner.arrJxb,
     checkSD: this.$Global.optioner.xmType,
     optionsAutoWash: [
-    {
+      {
         value: 1,
         text: '日结'
       },

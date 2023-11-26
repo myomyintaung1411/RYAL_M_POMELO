@@ -73,8 +73,6 @@
 <script>
 import { agentAddServiceApi } from '@/api/ip'
 import AES from '@/api/aes'
-import { SelfBindServiceApi } from '@/api/ht'
-import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -88,12 +86,6 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapState({
-      info: state => state.user.info
-    })
-  },
-
   methods: {
     onCancel() {
       this.dialogFormVisible = false
@@ -108,40 +100,38 @@ export default {
       if (this.form.password.trim() === '') return this.$toast('请输入客服密码')
 
       const send_ = {
-        Id: this.info.Id,
+        Id: this.$Global.optioner.Id,
         username: this.form.username,
         nickname: this.form.nickname,
-        password: this.form.password
+        password: this.$md5('s3fds4@#3' + this.form.password + '3243')
       }
       this.loading = true
 
       const en = this.$Global.ens
-      this.$toast.loading({
-            message: '请稍后...',
-            forbidClick: true,
-            duration: 1000,
-        })
       agentAddServiceApi(AES.encrypt(JSON.stringify(send_), en)).then(res => {
+        // console.log('res .. ', res)
         const resp = JSON.parse(AES.decrypt(res?.data, en))
+
+        // console.log('resp .. ', resp)
         if (resp?.JsonData?.result === 'ok') {
           const reqt = {
             router: 'SelfBindService',
             JsonData: {
-              Id: this.info.Id,
+              Id: this.$Global.optioner.Id,
               link: resp?.JsonData?.data || ''
             }
           }
-          SelfBindServiceApi(reqt).then((res) => {
-            if (res.code === 0) {
+          this.$pomelo.sendcb(reqt, resp2 => {
+            // console.log('SelfBindService ', resp2)
+            if (resp2?.JsonData?.result === 'ok') {
               this.$toast('添加成功')
               this.onCancel()
               this.$emit('serviceEmit', true)
             } else {
-              if (res.msg === 'IP 已存在') return this.$toast(res.msg)
+              this.loading = false
+              if (resp2.reason === 'IP 已存在') return this.$toast(resp2.reason)
               this.$toast('添加失败')
             }
-          }).catch((e) => {
-            console.error(e)
           })
         } else {
           this.loading = false
@@ -150,7 +140,6 @@ export default {
         this.loading = false
       }).catch(e => {
         this.loading = false
-        console.error('e ', e, e?.message)
       })
     }
   }

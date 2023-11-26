@@ -58,11 +58,12 @@
   </van-popup>
 </template>
 
+
 <script>
 import { unbindAgentServiceApi } from '@/api/ip'
 import AES from '@/api/aes'
 import { mapState } from 'vuex'
-import { UnBindServiceApi } from '@/api/ht'
+
 export default {
   props: {
     removeData: {
@@ -88,8 +89,7 @@ export default {
   },
   computed: {
     ...mapState({
-      searchServiceList: state => state.ht.searchServiceList,
-      info: state => state.user.info
+      searchServiceList: state => state.ht.searchServiceList
     })
   },
   watch: {
@@ -99,7 +99,6 @@ export default {
       }
     }
   },
-
   methods: {
     onCancel() {
       this.dialogFormVisible = false
@@ -123,15 +122,25 @@ export default {
         }
       }
       const send_ = {
-        username: this.nameData,
-        addrs: setLinks
+        router: 'UnbindService',
+        JsonData: {
+          username: this.nameData,
+          addrs: setLinks
+        }
       }
-      this.loading = true
-      UnBindServiceApi(send_).then((res) => {
-        this.loading = false
-        if (res.code === 0) {
-          unbindAgentServiceApi(AES.encrypt(JSON.stringify(send_), en)).then(rr => {
-            const resp = JSON.parse(AES.decrypt(rr?.data, en))
+      // console.log('send', send_)
+
+      this.$pomelo.sendcb(send_, res => {
+        if (res?.JsonData?.result === 'ok') {
+          const send_ = {
+            Id: this.removeData.Id,
+            agent_id: this.removeData.agent_id
+          }
+          const en = this.$Global.ens
+          this.loading = true
+          unbindAgentServiceApi(AES.encrypt(JSON.stringify(send_), en)).then(res => {
+            const resp = JSON.parse(AES.decrypt(res?.data, en))
+            // console.log('resp .. ', resp)
             if (resp?.JsonData?.result === 'ok') {
               this.$toast(resp?.JsonData?.msg)
               this.$emit('removeEmit', true)
@@ -143,12 +152,7 @@ export default {
           }).catch(e => {
             this.loading = false
           })
-        } else {
-          this.$toast(res?.msg)
         }
-      }).catch((e) => {
-        this.loading = false
-        console.error(e)
       })
     }
   }

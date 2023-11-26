@@ -61,7 +61,6 @@
 <script>
 import { agentEditOwnServiceApi } from '@/api/ip'
 import AES from '@/api/aes'
-import { mapState } from 'vuex'
 
 export default {
   props: {
@@ -82,11 +81,7 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      info: state => state.user.info
-    })
   },
-
   watch: {
     editData: {
       handler(newValue, oldValue) {
@@ -94,36 +89,30 @@ export default {
       }
     }
   },
-
   methods: {
     onCancel() {
       this.dialogFormVisible = false
     },
     onConfirm() {
       if (!this.editData.Id) return this.$toast('请选择客服')
-      if (this.form.nickname.trim() === '') return this.$toast('请输入客服昵称')
+      if (this.form.nickname.trim() === '') return this.$toast('请输入昵称')
 
       const send_ = {
-        Id: this.info.Id,
+        Id: this.$Global.optioner.Id,
         customer_id: this.editData.Id,
         nickname: this.form.nickname.trim()
       }
-
       const en = this.$Global.ens
       this.loading = true
-      this.$toast.loading({
-            message: '请稍后...',
-            forbidClick: true,
-            duration: 1000,
-        })
       agentEditOwnServiceApi(AES.encrypt(JSON.stringify(send_), en)).then(res => {
         const resp = JSON.parse(AES.decrypt(res?.data, en))
+        // console.log('resp .. ', resp)
         if (resp?.JsonData?.result === 'ok') {
-          this.$message.success(resp?.JsonData?.msg)
+          this.$toast(resp?.JsonData?.msg)
           this.$emit('serviceEmit', true)
           this.onCancel()
         } else {
-          this.$message.error(resp?.JsonData?.msg)
+          this.$toast(resp?.JsonData?.msg)
         }
         this.loading = false
       }).catch(e => {

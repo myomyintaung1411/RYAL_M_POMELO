@@ -460,7 +460,7 @@
 
  
 
-       <van-action-sheet v-if="row_data" v-model="showMoreBtn" title="修改" style="height: 30%;">
+       <van-action-sheet v-if="row_data" v-model="showMoreBtn" title="修改" style="height: 50%;">
         <div class="relative py-5 px-3">
       
             <div class="flex items-center space-x-2 mt-2">
@@ -488,7 +488,7 @@
         </div>
         </div>
         </van-action-sheet>
-       <van-action-sheet v-if="use_row_data" v-model="showMoreUserBtn" title="修改" style="height: 30%;">
+       <van-action-sheet v-if="use_row_data" v-model="showMoreUserBtn" title="修改" style="height: 50%;">
         <div class="relative py-5 px-3">
       
             <div class="flex items-center space-x-2 mt-2">
@@ -1021,7 +1021,7 @@ export default {
         JsonData: {
           Id: this.$Global.optioner.Id, // 操作员Id
           name: this.$Global.optioner.UserName, // 上级代理名称
-          input3: name.trim() || '', // 查找名称
+          input3: this.input3.trim() || '', // 查找名称
           nikename: this.form.nikename.trim() || '', // 查找昵称
           token: this.$Global.optioner.token,
           level: this.$Global.optioner.level,

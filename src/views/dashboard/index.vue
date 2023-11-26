@@ -159,6 +159,16 @@
           </span>
         </div>
 
+        <div @click="goservice" class="flex items-center justify-between px-3 py-3 tracking-wider bg-white shadow rounded mt-2">
+          <div class="flex items-center space-x-2">
+            <img src="@/assets/msg.svg" alt="settings" class="w-7">
+            <span>客服绑定</span>
+          </div>
+          <span>
+            <van-icon name="arrow" color="#0ba360"></van-icon>
+          </span>
+        </div>
+
         <div @click="logout" class="flex items-center justify-between px-3 py-3 tracking-wider bg-white shadow rounded mt-2">
           <div class="flex items-center space-x-2">
             <img src="@/assets/logout.svg" alt="settings" class="w-7">
@@ -168,6 +178,7 @@
             <van-icon name="arrow" color="#0ba360"></van-icon>
           </span>
         </div>
+
 
       </section>
     </div>
@@ -555,6 +566,9 @@ export default {
   },
 
   methods: {
+    goservice(){
+      this.$router.push('/service-bind/service-bind')
+    },
     goTo() {
       this.$router.push('/recordsPage/withdraw-records')
     },

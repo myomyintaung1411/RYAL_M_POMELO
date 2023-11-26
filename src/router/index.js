@@ -231,13 +231,13 @@ export const asyncRoutes = [
   //   name: 'BaseSetting',
   //   meta: { title: '公共设置', icon: 'setting' },
   // },
-  //     {
-  //       path: '/service-bind/service-bind',
-  //       component: () => import('@/views/self-bind-service/index'),
-  //       name: 'ServiceBind',
-  //       meta: { title: '客服绑定', icon: 'chat' }
+      {
+        path: '/service-bind/service-bind',
+        component: () => import('@/views/self-bind-service/index'),
+        name: 'ServiceBind',
+        meta: { title: '客服绑定', icon: 'chat' }
 
-  // },
+  },
 
   //     {
   //       path: '/hg-manage/road-list',
