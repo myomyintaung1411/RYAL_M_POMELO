@@ -514,6 +514,7 @@ export default {
         { value: 'bjl-3', text: '百家乐 32' },
         { value: 'bjl-4', text: '百家乐 33' },
         { value: 'bjl-5', text: '百家乐 35' },
+        { value: 'bjl-11', label: '百家乐 53' },
         { value: 'bjl-8', text: '百家乐 66' },
         { value: 'bjl-9', text: '百家乐 88' },
         { value: 'lh-1', text: '龙虎 36' },

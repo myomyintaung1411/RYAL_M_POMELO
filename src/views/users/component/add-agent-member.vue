@@ -26,7 +26,7 @@
                     <input
                         v-model.trim="addMemberDigFrm.memberName"
                         type="text" autocomplete="off"
-                         :readonly="$Global.optioner.Id == 1 ? false : true"
+                        :readonly="($Global.optioner.Id == 1 || $Global.gxLength <=3) ? false : true"
                         placeholder="请输入" 
                         class="input-name text-[#524d4d] bg-transparent placeholder:tracking-wider px-3 border-none outline-none focus:outline-none focus:border-none w-full h-full"
                     />
@@ -46,9 +46,12 @@
                         placeholder="请输入密码" 
                         class="input-name text-[#524d4d] bg-transparent placeholder:tracking-wider px-3 border-none outline-none focus:outline-none focus:border-none w-full h-full"
                     />
+                    <div @click="clickRefreshPw" class="absolute right-3">
+                      <van-icon name="replay" :style="is_refresh ? 'animation: rotating 1s linear infinite reverse' : ''" />
+                    </div>
                     </div>
             </div>
-            <div  class="flex items-center w-full bg-[#dddddd] relative h-10 rounded-md  px-5 mt-3">
+            <!-- <div  class="flex items-center w-full bg-[#dddddd] relative h-10 rounded-md  px-5 mt-3">
                     <div
                     class="border-none w-full h-full text-base flex justify-center items-center relative"
                     >
@@ -60,7 +63,7 @@
                         class="input-name text-[#524d4d] bg-transparent placeholder:tracking-wider px-3 border-none outline-none focus:outline-none focus:border-none w-full h-full"
                     />
                     </div>
-            </div>
+            </div> -->
             <div  class="flex items-center w-full bg-[#dddddd] relative h-10 rounded-md  px-5 mt-3">
                     <div
                     class="border-none w-full h-full text-base flex justify-center items-center relative"
@@ -335,8 +338,7 @@ export default {
         this.propData = newValue
         // console.log('add agent member ', this.type)
         this.addMemberDigFrm.xmKind = this.propData.xmType
-        this.addMemberDigFrm.pw = '123aaa'
-        this.addMemberDigFrm.conpw = '123aaa'
+        this.addMemberDigFrm.pw = this.GenerateInviteCode(8)
         parseInt(this.propData.xh_min) <= 20 ? this.addMemberDigFrm.xh_min = 20 + '' : this.addMemberDigFrm.xh_min = parseInt(this.propData.xh_min) + ''
         if (this.type === '添加会员') {
           parseInt(this.propData.xh_max) >= 5000 ? this.addMemberDigFrm.xh_max = 5000 + '' : this.addMemberDigFrm.xh_max = parseInt(this.propData.xh_max) + ''
@@ -380,6 +382,19 @@ export default {
   //   this.type = this.$t('add_user_dialog.add_agent')
   // },
   methods: {
+    GenerateInviteCode: (len) => {
+      let result = ''
+      const characters = len === 2 ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'
+      const charactersLength = characters.length
+
+      for (let i = 0; i < len; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength))
+      }
+      return result
+    },
+    clickRefreshPw() {
+      this.addMemberDigFrm.pw = this.GenerateInviteCode(8)
+    },
     changeXmType(t) {
       // console.log('type ', t)
       if (t === '单边') this.addMemberDigFrm.xmb_s = 0
